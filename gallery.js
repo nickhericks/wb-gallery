@@ -43,7 +43,9 @@ function Gallery(gallery) {
   }
 
   function handleKeyUp(event) {
-    if (event.key === 'Escape') closeModal();
+    if (event.key === 'Escape' return closeModal();
+    if(event.key === 'ArrowRight') return showNextImage();''
+    if(event.key === 'ArrowLeft') return showPrevImage();''
   }
 
   function showNextImage(e) {
