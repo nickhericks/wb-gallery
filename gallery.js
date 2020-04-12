@@ -1,3 +1,7 @@
+// TODO: Will come back and refactor this gallery later so that we can write better code using prototypes.
+
+
+
 function Gallery(gallery) {
   // console.log(gallery);
   if (!gallery) {
@@ -29,7 +33,6 @@ function Gallery(gallery) {
 
   function closeModal() {
     modal.classList.remove('open');
-    // TODO: add event listeners for clicks and keyboard
     window.removeEventListener('keyup', handleKeyUp);
     nextButton.removeEventListener('click', showNextImage);
     prevButton.removeEventListener('click', showPrevImage);
