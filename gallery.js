@@ -43,9 +43,11 @@ function Gallery(gallery) {
   }
 
   function handleKeyUp(event) {
-    if (event.key === 'Escape' return closeModal();
-    if(event.key === 'ArrowRight') return showNextImage();''
-    if(event.key === 'ArrowLeft') return showPrevImage();''
+    if (event.key === 'Escape') return closeModal();
+    if(event.key === 'ArrowRight') return showNextImage();
+    if(event.key === 'ArrowLeft') return showPrevImage();
+    // since images are not focusable, we've added a tabindex attribute to each image element in the index.html file so that users will be able to tab through them for accessibility
+    if(event.key === 'enter') return openModal();
   }
 
   function showNextImage(e) {
@@ -74,6 +76,18 @@ function Gallery(gallery) {
   images.forEach(image =>
     image.addEventListener('click', e => showImage(e.currentTarget))
   );
+
+  // loop over each image
+  images.forEach(image => {
+    // attached event listener for each image
+    image.addEventListener('keyup', e => {
+      // when that is keyup'd, check if it was enter
+      if(e.key === "Enter") {
+        // if it was, show image
+        showImage(e.currentTarget);
+      }
+    });
+  });
 
   modal.addEventListener('click', handleClickOutside);
 
